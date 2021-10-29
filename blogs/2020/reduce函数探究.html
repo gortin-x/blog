@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>通过实例学习reduce函数 | 苏恩的小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="suen's blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.0b1ac558.css" as="style"><link rel="preload" href="/blog/assets/js/app.9be37e0f.js" as="script"><link rel="preload" href="/blog/assets/js/2.475e6591.js" as="script"><link rel="preload" href="/blog/assets/js/17.7b96355a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.b500cadf.js"><link rel="prefetch" href="/blog/assets/js/11.656f7513.js"><link rel="prefetch" href="/blog/assets/js/12.8831af61.js"><link rel="prefetch" href="/blog/assets/js/13.32f4eaa7.js"><link rel="prefetch" href="/blog/assets/js/14.30cc69ed.js"><link rel="prefetch" href="/blog/assets/js/15.4a9aeb13.js"><link rel="prefetch" href="/blog/assets/js/16.99c5af55.js"><link rel="prefetch" href="/blog/assets/js/18.95f24fac.js"><link rel="prefetch" href="/blog/assets/js/19.ff66857f.js"><link rel="prefetch" href="/blog/assets/js/20.91d467dd.js"><link rel="prefetch" href="/blog/assets/js/21.760d1af8.js"><link rel="prefetch" href="/blog/assets/js/22.93576086.js"><link rel="prefetch" href="/blog/assets/js/23.3a2d2837.js"><link rel="prefetch" href="/blog/assets/js/24.59bc914b.js"><link rel="prefetch" href="/blog/assets/js/25.adca640d.js"><link rel="prefetch" href="/blog/assets/js/26.c9e93132.js"><link rel="prefetch" href="/blog/assets/js/27.15a7dba2.js"><link rel="prefetch" href="/blog/assets/js/28.a791ff81.js"><link rel="prefetch" href="/blog/assets/js/29.4ad03ea1.js"><link rel="prefetch" href="/blog/assets/js/3.5a8a6ffd.js"><link rel="prefetch" href="/blog/assets/js/30.2bd7f5fe.js"><link rel="prefetch" href="/blog/assets/js/31.7eaaec3d.js"><link rel="prefetch" href="/blog/assets/js/32.8fcd0b1a.js"><link rel="prefetch" href="/blog/assets/js/33.2b689024.js"><link rel="prefetch" href="/blog/assets/js/34.b2ba59d8.js"><link rel="prefetch" href="/blog/assets/js/4.49b2ac44.js"><link rel="prefetch" href="/blog/assets/js/5.3d3a9bd3.js"><link rel="prefetch" href="/blog/assets/js/6.059c934a.js"><link rel="prefetch" href="/blog/assets/js/7.144ac537.js"><link rel="prefetch" href="/blog/assets/js/8.8fea738e.js"><link rel="prefetch" href="/blog/assets/js/9.c0b37a2e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.0b1ac558.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">苏恩的小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/archive/" class="nav-link">
+  文章
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="/blog/code/" class="nav-link">
+  代码片段
+</a></div><div class="nav-item"><a href="/blog/issue/" class="nav-link">
+  问题汇总
+</a></div><div class="nav-item"><a href="/blog/tool/" class="nav-link">
+  常用工具
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link">
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/archive/" class="nav-link">
+  文章
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="/blog/code/" class="nav-link">
+  代码片段
+</a></div><div class="nav-item"><a href="/blog/issue/" class="nav-link">
+  问题汇总
+</a></div><div class="nav-item"><a href="/blog/tool/" class="nav-link">
+  常用工具
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link">
+  关于
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/archive/" class="sidebar-link">文章</a></li><li><a href="/blog/algorithm/" class="sidebar-link">算法</a></li><li><a href="/blog/code/" class="sidebar-link">代码片段</a></li><li><a href="/blog/issue/" class="sidebar-link">问题汇总</a></li><li><a href="/blog/tool/" class="sidebar-link">常用工具</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="通过实例学习reduce函数"><a href="#通过实例学习reduce函数" class="header-anchor">#</a> 通过实例学习reduce函数</h1> <blockquote><p>reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。</p></blockquote> <p>arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])</p> <p>reducer 函数接收4个参数:</p> <ul><li>Accumulator (acc) (累计器)</li> <li>Current Value (cur) (当前值)</li> <li>Current Index (idx) (当前索引)</li> <li>Source Array (src) (源数组)</li></ul> <h2 id="实例1"><a href="#实例1" class="header-anchor">#</a> 实例1</h2> <blockquote><p>计算数组<code>[0, 1, 2, 3]</code>里所有值的和</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> total <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorValue<span class="token punctuation">,</span> currentValue</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> accumulatorValue <span class="token operator">+</span> currentValue<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// total = 6</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="实例2"><a href="#实例2" class="header-anchor">#</a> 实例2</h2> <blockquote><p>计算对象数组<code>[{x: 1}, {x:2}, {x:3}]</code>的所有值的和</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>x<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>x<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> total <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorValue<span class="token punctuation">,</span> currentObject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> accumulatorValue <span class="token operator">+</span> currentObject<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// total = 6</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="实例3"><a href="#实例3" class="header-anchor">#</a> 实例3</h2> <blockquote><p>将二维数组 [[0, 1], [2, 3], [4, 5]] 转化为一维数组 [0, 1, 2, 3, 4, 5]</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// const result = [];</span>
+arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorArray<span class="token punctuation">,</span> currentArray</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 利用concat 拼接</span>
+    <span class="token keyword">return</span> accumulatorArray<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>currentArray<span class="token punctuation">)</span>
+    
+    <span class="token comment">// 利用数组push</span>
+    <span class="token comment">// currentArray.forEach(i =&gt; accumulatorArray.push(i))</span>
+    <span class="token comment">// return accumulatorArray;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment">//  [0, 1, 2, 3, 4, 5]</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="实例4"><a href="#实例4" class="header-anchor">#</a> 实例4</h2> <blockquote><p>var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice']; 计算数组中每个元素出现的次数；</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'Tiff'</span><span class="token punctuation">,</span> <span class="token string">'Bruce'</span><span class="token punctuation">,</span> <span class="token string">'Alice'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorValue<span class="token punctuation">,</span> currentItem</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>accumulatorValue<span class="token punctuation">[</span>currentItem<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        accumulatorValue<span class="token punctuation">[</span>currentItem<span class="token punctuation">]</span><span class="token operator">++</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        accumulatorValue<span class="token punctuation">[</span>currentItem<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> accumulatorValue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment">// {Alice: 2, Bob: 1, Tiff: 1, Bruce: 1}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="实例5"><a href="#实例5" class="header-anchor">#</a> 实例5</h2> <blockquote><p>var people = [
+{ name: 'Alice', age: 21 },
+{ name: 'Max', age: 20 },
+{ name: 'Jane', age: 20 }
+];</p> <p>按属性对object分类</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">groupBy</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> property</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> array<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorObject<span class="token punctuation">,</span> currentObject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>accumulatorObject<span class="token punctuation">[</span>currentObject<span class="token punctuation">[</span>property<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            accumulatorObject<span class="token punctuation">[</span>currentObject<span class="token punctuation">[</span>property<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        accumulatorObject<span class="token punctuation">[</span>currentObject<span class="token punctuation">[</span>property<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>currentObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> accumulatorObject<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> people <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">21</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'Max'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token function">groupBy</span><span class="token punctuation">(</span>people<span class="token punctuation">,</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ * {
+ *     Alice: [{ name: 'Alice', age: 21 }],
+ *     Jane: [{ name: 'Jane', age: 20 }]
+ *     Max: [{ name: 'Max', age: 20 }],
+ * }
+*/</span>
+
+<span class="token function">groupBy</span><span class="token punctuation">(</span>people<span class="token punctuation">,</span> <span class="token string">&quot;age&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ * {
+ *     20: [{ name: 'Max', age: 20 }, { name: 'Jane', age: 20 }]
+ *     21: [{ name: 'Alice', age: 21 }],
+ * }
+*/</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h2 id="实例6"><a href="#实例6" class="header-anchor">#</a> 实例6</h2> <blockquote><p>var friends = [{
+name: 'Anna',
+books: ['Bible', 'Harry Potter'],
+age: 21
+}, {
+name: 'Bob',
+books: ['War and peace', 'Romeo and Juliet'],
+age: 26
+}, {
+name: 'Alice',
+books: ['The Lord of the Rings', 'The Shining'],
+age: 18
+}];</p> <p>EXCEPT: allbooks = [
+'Alphabet', 'Bible', 'Harry Potter', 'War and peace',
+'Romeo and Juliet', 'The Lord of the Rings',
+'The Shining'
+]</p> <p>使用扩展运算符和initialValue绑定包含在对象数组中的数组</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Anna'</span><span class="token punctuation">,</span>
+  books<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Bible'</span><span class="token punctuation">,</span> <span class="token string">'Harry Potter'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">21</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Bob'</span><span class="token punctuation">,</span>
+  books<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'War and peace'</span><span class="token punctuation">,</span> <span class="token string">'Romeo and Juliet'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">26</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span>
+  books<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'The Lord of the Rings'</span><span class="token punctuation">,</span> <span class="token string">'The Shining'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">18</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+friends<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorArray<span class="token punctuation">,</span> currentObject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>accumulatorArray<span class="token punctuation">,</span> <span class="token operator">...</span>currentObject<span class="token punctuation">.</span>books<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Alphabet'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  ['Alphabet', 'Bible', 'Harry Potter', 'War and peace', 'Romeo and Juliet', 'The Lord of the Rings', 'The Shining']</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="实例7"><a href="#实例7" class="header-anchor">#</a> 实例7</h2> <p>数组 ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'] 去重</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+array<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorArray<span class="token punctuation">,</span> currentItem</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>accumulatorArray<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>currentItem<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        accumulatorArray<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>currentItem<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> accumulatorArray
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  ['a', 'b', 'c', 'e', 'd']</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="实例8"><a href="#实例8" class="header-anchor">#</a> 实例8</h2> <p>按顺序运行Promise</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">function</span> <span class="token function">p1</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>a <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// promise function 2</span>
+<span class="token keyword">function</span> <span class="token function">p2</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>a <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// function 3  - will be wrapped in a resolved promise by .then()</span>
+<span class="token keyword">function</span> <span class="token function">f3</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">return</span> a <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// promise function 4</span>
+<span class="token keyword">function</span> <span class="token function">p4</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>a <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> promiseArr <span class="token operator">=</span> <span class="token punctuation">[</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> f3<span class="token punctuation">,</span> p4<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">p1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">d</span> <span class="token operator">=&gt;</span> <span class="token function">p2</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">d</span> <span class="token operator">=&gt;</span> <span class="token function">p3</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+promiseArr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accumulatorPromise<span class="token punctuation">,</span> currentPromise</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> accumulatorPromise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">d</span> <span class="token operator">=&gt;</span> <span class="token function">currentPromise</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+<span class="token punctuation">}</span><span class="token punctuation">,</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h2 id="实例9"><a href="#实例9" class="header-anchor">#</a> 实例9</h2> <p>功能型函数管道</p> <h2 id="实例10"><a href="#实例10" class="header-anchor">#</a> 实例10</h2> <p>使用 reduce实现map</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.9be37e0f.js" defer></script><script src="/blog/assets/js/2.475e6591.js" defer></script><script src="/blog/assets/js/17.7b96355a.js" defer></script>
+  </body>
+</html>

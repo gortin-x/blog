@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>键盘事件监测 | 苏恩的小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="suen's blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.0b1ac558.css" as="style"><link rel="preload" href="/blog/assets/js/app.9be37e0f.js" as="script"><link rel="preload" href="/blog/assets/js/2.475e6591.js" as="script"><link rel="preload" href="/blog/assets/js/27.15a7dba2.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.b500cadf.js"><link rel="prefetch" href="/blog/assets/js/11.656f7513.js"><link rel="prefetch" href="/blog/assets/js/12.8831af61.js"><link rel="prefetch" href="/blog/assets/js/13.32f4eaa7.js"><link rel="prefetch" href="/blog/assets/js/14.30cc69ed.js"><link rel="prefetch" href="/blog/assets/js/15.4a9aeb13.js"><link rel="prefetch" href="/blog/assets/js/16.99c5af55.js"><link rel="prefetch" href="/blog/assets/js/17.7b96355a.js"><link rel="prefetch" href="/blog/assets/js/18.95f24fac.js"><link rel="prefetch" href="/blog/assets/js/19.ff66857f.js"><link rel="prefetch" href="/blog/assets/js/20.91d467dd.js"><link rel="prefetch" href="/blog/assets/js/21.760d1af8.js"><link rel="prefetch" href="/blog/assets/js/22.93576086.js"><link rel="prefetch" href="/blog/assets/js/23.3a2d2837.js"><link rel="prefetch" href="/blog/assets/js/24.59bc914b.js"><link rel="prefetch" href="/blog/assets/js/25.adca640d.js"><link rel="prefetch" href="/blog/assets/js/26.c9e93132.js"><link rel="prefetch" href="/blog/assets/js/28.a791ff81.js"><link rel="prefetch" href="/blog/assets/js/29.4ad03ea1.js"><link rel="prefetch" href="/blog/assets/js/3.5a8a6ffd.js"><link rel="prefetch" href="/blog/assets/js/30.2bd7f5fe.js"><link rel="prefetch" href="/blog/assets/js/31.7eaaec3d.js"><link rel="prefetch" href="/blog/assets/js/32.8fcd0b1a.js"><link rel="prefetch" href="/blog/assets/js/33.2b689024.js"><link rel="prefetch" href="/blog/assets/js/34.b2ba59d8.js"><link rel="prefetch" href="/blog/assets/js/4.49b2ac44.js"><link rel="prefetch" href="/blog/assets/js/5.3d3a9bd3.js"><link rel="prefetch" href="/blog/assets/js/6.059c934a.js"><link rel="prefetch" href="/blog/assets/js/7.144ac537.js"><link rel="prefetch" href="/blog/assets/js/8.8fea738e.js"><link rel="prefetch" href="/blog/assets/js/9.c0b37a2e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.0b1ac558.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">苏恩的小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/archive/" class="nav-link">
+  文章
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="/blog/code/" class="nav-link router-link-active">
+  代码片段
+</a></div><div class="nav-item"><a href="/blog/issue/" class="nav-link">
+  问题汇总
+</a></div><div class="nav-item"><a href="/blog/tool/" class="nav-link">
+  常用工具
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link">
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/archive/" class="nav-link">
+  文章
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="/blog/code/" class="nav-link router-link-active">
+  代码片段
+</a></div><div class="nav-item"><a href="/blog/issue/" class="nav-link">
+  问题汇总
+</a></div><div class="nav-item"><a href="/blog/tool/" class="nav-link">
+  常用工具
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link">
+  关于
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/archive/" class="sidebar-link">文章</a></li><li><a href="/blog/algorithm/" class="sidebar-link">算法</a></li><li><a href="/blog/code/" aria-current="page" class="sidebar-link">代码片段</a></li><li><a href="/blog/issue/" class="sidebar-link">问题汇总</a></li><li><a href="/blog/tool/" class="sidebar-link">常用工具</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="键盘事件监测"><a href="#键盘事件监测" class="header-anchor">#</a> 键盘事件监测</h1> <p>js监测键盘事件在安卓和ios环境中的表现并不一致，安卓键盘弹起时会改变当前窗口的高度，因此可以通过<code>resize</code> 监测窗口变化来实现。而在ios环境中，键盘事件并不会影响当前窗口，但是ios本身提供了<code>focusin/focusout</code>这对方法来通知键盘事件。</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">keyboardEvent</span><span class="token punctuation">(</span>watcher<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>document<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;Error in getKeyboardStatus, document not exit!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">let</span> status<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        _watcher<span class="token operator">:</span> <span class="token builtin">Function</span> <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token operator">=</span> watcher<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> originHeight<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isFunction</span><span class="token punctuation">(</span>_watcher<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">_bind</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">_bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+        <span class="token comment">// if ios</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token comment">/*FIXME isIOS */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focusin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 键盘弹起</span>
+                status <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                _watcher <span class="token operator">&amp;&amp;</span> <span class="token function">_watcher</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focusout'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 键盘收起</span>
+                status <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                _watcher <span class="token operator">&amp;&amp;</span> <span class="token function">_watcher</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// if android</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;Error in getKeyboardStatus, window not exit!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> _resize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * 定制化代码
+         * Hybird 开发可能会用到
+         * 根据Native提供的协议定制化处理
+         * */</span>
+        <span class="token comment">// if (/*定制化环境*/) {</span>
+        <span class="token comment">//     (window as any)[&quot;keyboardAction&quot;] = (result: string): void =&gt; {</span>
+        <span class="token comment">//         if (result == 'keyboardUp') {</span>
+        <span class="token comment">//             // 键盘弹起</span>
+        <span class="token comment">//             status = true;</span>
+        <span class="token comment">//         } else if (result === 'keyboardDown') {</span>
+        <span class="token comment">//             // 键盘收起</span>
+        <span class="token comment">//             status = false;</span>
+        <span class="token comment">//         }</span>
+
+        <span class="token comment">//         _watcher &amp;&amp; _watcher(status)</span>
+        <span class="token comment">//     }</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">_resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> resizeHeight<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>resizeHeight <span class="token operator">&lt;</span> originHeight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 键盘弹起</span>
+            status <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 键盘收起</span>
+            status <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        _watcher <span class="token operator">&amp;&amp;</span> <span class="token function">_watcher</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">_get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> status<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        get<span class="token operator">:</span> _get
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br></div></div><p>使用方式</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 1、监测推送</span>
+<span class="token function">keyboardEvent</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">status</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// status : true 键盘打开 ｜ false 键盘收起</span>
+    <span class="token comment">// code here...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">// 2、主动获取</span>
+<span class="token function">keyboardEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// true 键盘打开 ｜ false 键盘收起</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.9be37e0f.js" defer></script><script src="/blog/assets/js/2.475e6591.js" defer></script><script src="/blog/assets/js/27.15a7dba2.js" defer></script>
+  </body>
+</html>
